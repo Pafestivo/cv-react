@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PersonalInfo from "./PersonalInfo";
-import '../../styles/form/form-container.css';
+import Experience from "./Experience";
+import '../../styles/form/form-styles.css';
 
 class FormContainer extends Component {
   render() {
@@ -8,6 +9,8 @@ class FormContainer extends Component {
     return(
       <div className="form-container">
         <PersonalInfo cv={cv} setCV={setCV}/>
+        <h1>Experience</h1>
+        <Experience cv={cv} setCV={setCV}/>
       </div>
     )
   }

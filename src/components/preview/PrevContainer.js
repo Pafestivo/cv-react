@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import '../../styles/preview/prev-container.css'
+import '../../styles/preview/preview-styles.css'
 
 class PrevContainer extends Component {
   render() {
     const { firstName, lastName, role, address, number, email, description} = this.props.cv.personalInfo
+    const { position, company, city, fromYear, toYear } = this.props.cv.experience
     return(
       <div className="prev-container">
         <div className="name-role">
@@ -27,10 +28,33 @@ class PrevContainer extends Component {
             </div>
           </div> {/* personal-details */}
 
-          <div className="description">
-            <h2>Description</h2>
-            <p>{description}</p>
-          </div>      
+          <div className="main-info">
+            <div className="description">
+              <h2>Description</h2>
+              <p>{description}</p>
+            </div>  
+
+            <hr />
+
+            <div className="experience">
+            <h2>Experience</h2>
+              <div className="exp-tile">
+                <div className="years">
+                <p>{fromYear} - {toYear}</p>
+                </div>
+
+                <div className="job">
+                  <p className="position">{position}</p>
+                  <p>{company}, {city}</p>
+                </div>
+              </div>
+              
+
+            </div> {/* experience */}
+
+            <hr />
+
+          </div>
         </div>
 
       </div> /* prev-container */

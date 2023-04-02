@@ -7,6 +7,13 @@ const emptyCV = {
     number: "",
     email: "",
     description: "",
+  },
+  experience: {
+    position: "",
+    company: "",
+    city: "",
+    fromYear: "",
+    toYear: ""
   }
 }
 

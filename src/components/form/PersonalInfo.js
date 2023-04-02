@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import InputField from "../utility/InputField";
-import '../../styles/form/form-container.css';
+import '../../styles/form/form-styles.css';
 
 class PersonalInfo extends Component {
   constructor(props) {
