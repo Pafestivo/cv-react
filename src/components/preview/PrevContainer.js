@@ -40,12 +40,12 @@ class PrevContainer extends Component {
             <h2>Experience</h2>
               <div className="exp-tile">
                 <div className="years">
-                <p>{fromYear} - {toYear}</p>
+                <p>{fromYear} {toYear}</p>
                 </div>
 
                 <div className="job">
                   <p className="position">{position}</p>
-                  <p>{company}, {city}</p>
+                  <p>{company}{city}</p>
                 </div>
               </div>
               

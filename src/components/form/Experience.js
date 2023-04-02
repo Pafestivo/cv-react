@@ -14,6 +14,8 @@ class Experience extends Component {
     const { name, value } = e.target
     const updatedCV = { ...this.props.cv }
     updatedCV.experience[name] = value
+    if(name === 'toYear' && value !== '') updatedCV.experience[name] = `- ${value}`
+    if(name === 'city' && value !== '') updatedCV.experience[name] = `, ${value}`
     this.props.setCV(updatedCV)
   }
 
