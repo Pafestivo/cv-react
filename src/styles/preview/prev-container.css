@@ -1,10 +1,52 @@
 .prev-container {
   background-color: rgb(236, 236, 236);
+  word-break: break-all;
   border-radius: 5px;
-  padding: 30px;
-  width: 800px;
+  width: 900px;
   min-height: 500px;
   margin-bottom: 50px;
   height: max-content;
   box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
+}
+
+.prev-container h2,
+.prev-container h3,
+.prev-container h4 {
+  color: rgb(20, 62, 114)
+}
+
+.name-role {
+  padding: 20px;
+  border-radius: 5px 5px 0 0 ;
+  background-color: rgb(20, 62, 114);
+  color: white;
+  min-height: 120px;
+  height: max-content;
+}
+
+.name-role h1 {
+  font-size: 40px;
+  line-height: 50px;
+}
+
+.name-role h3 {
+  font-size: 20px;
+  color: white;
+  padding-left: 10px;
+}
+
+.grid-container {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 1fr 220px;
+  padding: 20px 0 20px 20px;
+  column-gap: 30px;
+}
+
+.personal-details {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  grid-area: 1 / 2 / 3 / -1;
+  height: 100%;
 }
