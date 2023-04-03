@@ -12,11 +12,25 @@ class Experience extends Component {
 
   handleChangeExperience(e) {
     const { name, value } = e.target
-    const updatedCV = { ...this.props.cv }
-    updatedCV.experience[name] = value
-    if(name === 'toYear' && value !== '') updatedCV.experience[name] = `- ${value}`
-    if(name === 'city' && value !== '') updatedCV.experience[name] = `, ${value}`
-    this.props.setCV(updatedCV)
+    const { id } = this.props.exp
+    const updatedCV = Object.values(this.props.cv)
+
+    const currentExpIndex = updatedCV[1].findIndex(exp => exp.id === id)
+    const currentExp = updatedCV[1][currentExpIndex]
+
+    const updatedExp = {...currentExp, [name]: value}
+    if(name === 'toYear' && value !== '') updatedExp[name] = `- ${value}`
+    if(name === 'city' && value !== '') updatedExp[name] = `, ${value}`
+
+    const newCV = {
+      personalInfo: {...updatedCV[0]},
+      experience: [
+        ...updatedCV[1].slice(0, currentExpIndex),
+        updatedExp,
+        ...updatedCV[1].slice(currentExpIndex + 1)
+      ]
+    }
+    this.props.setCV(newCV)
   }
 
   render() {
@@ -28,6 +42,7 @@ class Experience extends Component {
         <InputField type="text" placeholder="From Year" name="fromYear" onChange={this.handleChangeExperience}/>
         <InputField type="text" placeholder="To Year" name="toYear" onChange={this.handleChangeExperience}/>
       </section>
+      
     )
   }
 }

@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import '../../styles/preview/preview-styles.css'
 
 class PrevContainer extends Component {
+
   render() {
     const { firstName, lastName, role, address, number, email, description} = this.props.cv.personalInfo
-    const { position, company, city, fromYear, toYear } = this.props.cv.experience
+    const experiences = [...this.props.cv.experience]
     return(
       <div className="prev-container">
         <div className="name-role">
@@ -37,19 +38,22 @@ class PrevContainer extends Component {
             <hr />
 
             <div className="experience">
-            <h2>Experience</h2>
-              <div className="exp-tile">
-                <div className="years">
-                <p>{fromYear} {toYear}</p>
-                </div>
+              <h2>Experience</h2>
+              {experiences.map((exp) => {
+                const { position, company, city, fromYear, toYear, id } = exp;
+                return(
+                  <div className="exp-tile" key={id}>
+                    <div className="years">
+                      <p>{fromYear} {toYear}</p>
+                    </div>
 
-                <div className="job">
-                  <p className="position">{position}</p>
-                  <p>{company}{city}</p>
-                </div>
-              </div>
-              
-
+                    <div className="job">
+                      <p className="position">{position}</p>
+                      <p>{company}{city}</p>
+                    </div>
+                  </div> 
+                )
+              })}
             </div> {/* experience */}
 
             <hr />
