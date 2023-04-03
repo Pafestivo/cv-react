@@ -17,14 +17,6 @@ const emptyCV = {
       toYear: "",
       id: Date.now()
     },
-    {
-      position: "",
-      company: "",
-      city: "",
-      fromYear: "",
-      toYear: "",
-      id: Date.now() + 1
-    },
   ]
 }
 
