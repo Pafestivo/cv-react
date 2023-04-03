@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import InputField from "../utility/InputField";
+import Button from "../utility/Button";
 import '../../styles/form/form-styles.css';
 
 class Experience extends Component {
@@ -7,6 +8,7 @@ class Experience extends Component {
     super(props)
 
     this.handleChangeExperience = this.handleChangeExperience.bind(this)
+    this.deleteExperience = this.deleteExperience.bind(this)
   }
   
 
@@ -33,6 +35,15 @@ class Experience extends Component {
     this.props.setCV(newCV)
   }
 
+  deleteExperience() {
+    const { id } = this.props.exp
+    const updatedCV = { ...this.props.cv }
+    const expIndex = updatedCV.experience.findIndex(exp => exp.id === id)
+    updatedCV.experience.splice(expIndex, 1)
+
+    this.props.setCV(updatedCV)
+  }
+
   render() {
     return(
       <section className="experience">
@@ -41,8 +52,8 @@ class Experience extends Component {
         <InputField type="text" placeholder="City" name="city" onChange={this.handleChangeExperience}/>
         <InputField type="text" placeholder="From Year" name="fromYear" onChange={this.handleChangeExperience}/>
         <InputField type="text" placeholder="To Year" name="toYear" onChange={this.handleChangeExperience}/>
+        <Button value="Delete Experience" onClick={this.deleteExperience} />
       </section>
-      
     )
   }
 }
