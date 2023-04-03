@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PersonalInfo from "./PersonalInfo";
 import Experience from "./Experience";
 import Button from "../utility/Button";
+import Education from "./Education";
 import '../../styles/form/form-styles.css';
 import '../../styles/form/form-styles.css';
 
@@ -11,6 +12,7 @@ class FormContainer extends Component {
     super(props)
 
     this.addExperience = this.addExperience.bind(this)
+    this.addEducation = this.addEducation.bind(this)
   }
 
   addExperience() {
@@ -27,8 +29,23 @@ class FormContainer extends Component {
     const updatedCV = { ...this.props.cv }
     updatedCV.experience.push(newExp)
     this.props.setCV(updatedCV)
+  }
+
+  addEducation() {
+    // add an empty education to the CV object
+    const newEdu = {
+      universityName: "",
+      city: "",
+      degree: "",
+      subject: "",
+      fromYear: "",
+      toYear: "",
+      id: Date.now()
+    }
     
-    // add this new experience to the dom at the bottom of the experience list
+    const updatedCV = { ...this.props.cv }
+    updatedCV.education.push(newEdu)
+    this.props.setCV(updatedCV)
   }
 
   render() {
@@ -36,11 +53,16 @@ class FormContainer extends Component {
     return(
       <div className="form-container">
         <PersonalInfo cv={cv} setCV={setCV}/>
-        <h1>Experience</h1>
+        <h1 className="exp-title">Experience</h1>
         {cv.experience.map(exp => {
           return <Experience exp={exp} cv={cv} setCV={setCV} key={exp.id} />
         })}
-        <Button value="Add Experience" onClick={this.addExperience} />
+        <Button className="add-btn" value="Add Experience" onClick={this.addExperience} />
+        <h1 className="edu-title">Education</h1>
+        {cv.education.map(edu => {
+          return <Education edu={edu} cv={cv} setCV={setCV} key={edu.id} />
+        })}
+        <Button className="add-btn" value="Add Education" onClick={this.addEducation} />
       </div>
     )
   }

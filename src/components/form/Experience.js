@@ -30,7 +30,8 @@ class Experience extends Component {
         ...updatedCV[1].slice(0, currentExpIndex),
         updatedExp,
         ...updatedCV[1].slice(currentExpIndex + 1)
-      ]
+      ],
+      education: [...updatedCV[2]]
     }
     this.props.setCV(newCV)
   }
@@ -52,7 +53,7 @@ class Experience extends Component {
         <InputField type="text" placeholder="City" name="city" onChange={this.handleChangeExperience}/>
         <InputField type="text" placeholder="From Year" name="fromYear" onChange={this.handleChangeExperience}/>
         <InputField type="text" placeholder="To Year" name="toYear" onChange={this.handleChangeExperience}/>
-        <Button value="Delete Experience" onClick={this.deleteExperience} />
+        <Button className="delete-btn" value="Delete Experience" onClick={this.deleteExperience} />
       </section>
     )
   }

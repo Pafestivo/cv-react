@@ -57,10 +57,11 @@
   row-gap: 15px;
 }
 
-.exp-tile {
+.tile {
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 400px;
+  margin-top: 10px;
 }
 
 .years {
@@ -68,12 +69,12 @@
   font-weight: 450;
 }
 
-.job {
+.details {
   display: flex;
   flex-direction: column;
   row-gap: 10px;
 }
 
-.position {
+.bold {
   font-weight: 450;
 }

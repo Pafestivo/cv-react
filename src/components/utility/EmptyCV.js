@@ -17,6 +17,17 @@ const emptyCV = {
       toYear: "",
       id: Date.now()
     },
+  ],
+  education: [
+    {
+      universityName: "",
+      city: "",
+      degree: "",
+      subject: "",
+      fromYear: "",
+      toYear: "",
+      id: Date.now()
+    },
   ]
 }
 
