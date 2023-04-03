@@ -1,6 +1,7 @@
 .prev-container {
   position: sticky;
   top: 20px;
+  right: 10px;
   background-color: rgb(236, 236, 236);
   word-break: break-all;
   border-radius: 5px;
