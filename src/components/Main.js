@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import '../styles/main.css'
+import '../styles/media-queries.css'
 import FormContainer from "./form/FormContainer";
 import PrevContainer from "./preview/PrevContainer";
 import emptyCV from "./utility/EmptyCV";

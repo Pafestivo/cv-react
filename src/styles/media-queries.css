@@ -1,0 +1,25 @@
+@media only screen and (max-width: 1640px) {
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    padding-left: 10px;
+    row-gap: 50px;
+  }
+
+  .prev-container {
+    position: static;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .form-container {
+    width: 400px;
+  }
+
+  button {
+    font-size: 20px;
+    height: 40px;
+  }
+}
