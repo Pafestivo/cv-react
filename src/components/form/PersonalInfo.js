@@ -1,36 +1,29 @@
-import React, { Component } from "react";
+import React from "react";
 import InputField from "../utility/InputField";
 import '../../styles/form/form-styles.css';
 
-class PersonalInfo extends Component {
-  constructor(props) {
-    super(props)
-
-    this.handleChangePersonal = this.handleChangePersonal.bind(this)
-  }
+const PersonalInfo = ({ cv, setCV }) => {
   
 
-  handleChangePersonal(e) {
+  const handleChangePersonal = (e) => {
     const { name, value } = e.target
-    const updatedCV = { ...this.props.cv }
+    const updatedCV = { ...cv }
     updatedCV.personalInfo[name] = value
-    this.props.setCV(updatedCV)
+    setCV(updatedCV)
   }
 
-  render() {
-    return(
-      <section className="p-i">
-      <h1>Personal Information:</h1>
-        <InputField type="text" placeholder="First Name" name="firstName" onChange={this.handleChangePersonal}/>
-        <InputField type="text" placeholder="Last Name" name="lastName" onChange={this.handleChangePersonal}/>
-        <InputField type="text" placeholder="Role" name="role" onChange={this.handleChangePersonal}/>
-        <InputField type="text" placeholder="Address" name="address" onChange={this.handleChangePersonal}/>
-        <InputField type="text" placeholder="Phone Number" name="number" onChange={this.handleChangePersonal}/>
-        <InputField type="email" placeholder="Email" name="email" onChange={this.handleChangePersonal}/>
-        <InputField type="textarea" placeholder="Description" name="description" onChange={this.handleChangePersonal}/>
-      </section>
-    )
-  }
+  return(
+    <section className="p-i">
+    <h1>Personal Information:</h1>
+      <InputField type="text" placeholder="First Name" name="firstName" onChange={handleChangePersonal}/>
+      <InputField type="text" placeholder="Last Name" name="lastName" onChange={handleChangePersonal}/>
+      <InputField type="text" placeholder="Role" name="role" onChange={handleChangePersonal}/>
+      <InputField type="text" placeholder="Address" name="address" onChange={handleChangePersonal}/>
+      <InputField type="text" placeholder="Phone Number" name="number" onChange={handleChangePersonal}/>
+      <InputField type="email" placeholder="Email" name="email" onChange={handleChangePersonal}/>
+      <InputField type="textarea" placeholder="Description" name="description" onChange={handleChangePersonal}/>
+    </section>
+  )
 }
 
 export default PersonalInfo

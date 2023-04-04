@@ -1,19 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 import InputField from "../utility/InputField";
 import Button from "../utility/Button";
 
-class Education extends Component {
-  constructor(props) {
-    super(props)
+const Education = ({ cv, setCV, edu}) => {
 
-    this.handleChangeEducation = this.handleChangeEducation.bind(this)
-    this.deleteEducation = this.deleteEducation.bind(this)
-  }
-
-  handleChangeEducation(e) {
+  const handleChangeEducation = (e) => {
     const { name, value } = e.target
-    const { id } = this.props.edu
-    const updatedCV = Object.values(this.props.cv)
+    const { id } = edu
+    const updatedCV = Object.values(cv)
 
     const currentEduIndex = updatedCV[2].findIndex(edu => edu.id === id)
     const currentEdu = updatedCV[2][currentEduIndex]
@@ -33,31 +27,29 @@ class Education extends Component {
         ...updatedCV[2].slice(currentEduIndex + 1)
       ]
     }
-    this.props.setCV(newCV)
+    setCV(newCV)
   }
 
-  deleteEducation() {
-    const { id } = this.props.edu
-    const updatedCV = { ...this.props.cv }
+  const deleteEducation = () => {
+    const { id } = edu
+    const updatedCV = { ...cv }
     const eduIndex = updatedCV.education.findIndex(edu => edu.id === id)
     updatedCV.education.splice(eduIndex, 1)
 
-    this.props.setCV(updatedCV)
+    setCV(updatedCV)
   }
 
-  render() {
     return(
-      <section className="education">
-        <InputField type="text" placeholder="University Name" name="universityName" onChange={this.handleChangeEducation}/>
-        <InputField type="text" placeholder="City" name="city" onChange={this.handleChangeEducation}/>
-        <InputField type="text" placeholder="Degree" name="degree" onChange={this.handleChangeEducation}/>
-        <InputField type="text" placeholder="Subject" name="subject" onChange={this.handleChangeEducation}/>
-        <InputField type="text" placeholder="From Year" name="fromYear" onChange={this.handleChangeEducation}/>
-        <InputField type="text" placeholder="To Year" name="toYear" onChange={this.handleChangeEducation}/>
-        <Button className="delete-btn" value="Delete Education" onClick={this.deleteEducation} />
-      </section>
-    )
-  }
+    <section className="education">
+      <InputField type="text" placeholder="University Name" name="universityName" onChange={handleChangeEducation}/>
+      <InputField type="text" placeholder="City" name="city" onChange={handleChangeEducation}/>
+      <InputField type="text" placeholder="Degree" name="degree" onChange={handleChangeEducation}/>
+      <InputField type="text" placeholder="Subject" name="subject" onChange={handleChangeEducation}/>
+      <InputField type="text" placeholder="From Year" name="fromYear" onChange={handleChangeEducation}/>
+      <InputField type="text" placeholder="To Year" name="toYear" onChange={handleChangeEducation}/>
+      <Button className="delete-btn" value="Delete Education" onClick={deleteEducation} />
+    </section>
+  )
 }
 
 export default Education
